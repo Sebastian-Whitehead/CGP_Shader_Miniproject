@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Shading Surface
-  m_Shader: {fileID: 4800000, guid: e22a74cdaf96d25479275897df2e0ea0, type: 3}
+  m_Name: Standard
+  m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
   m_ValidKeywords: []
   m_InvalidKeywords: []
   m_LightmapFlags: 4
@@ -59,22 +59,15 @@ Material:
     m_Ints: []
     m_Floats:
     - _BumpScale: 1
-    - _CloseOrientatedRange: 1.5
-    - _CloseRange: 3
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
-    - _FarOrientatedRange: 20
-    - _FarRange: 4
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
-    - _MediumOrientatedRange: 3
-    - _MediumRange: 15
     - _Metallic: 0
     - _Mode: 0
     - _OcclusionStrength: 1
-    - _OrientationAngle: 45
     - _Parallax: 0.02
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
@@ -82,14 +75,6 @@ Material:
     - _UVSec: 0
     - _ZWrite: 1
     m_Colors:
-    - _BaseColor: {r: 0.2627451, g: 0.16078432, b: 0.21176472, a: 1}
-    - _CloseColor: {r: 0.9960785, g: 0.8941177, b: 0.76470596, a: 1}
-    - _CloseOrientatedColor: {r: 0.9960785, g: 0.8862746, b: 0.7607844, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _FarColor: {r: 0.2627451, g: 0.16078432, b: 0.21176472, a: 1}
-    - _FarOrientatedColor: {r: 0.65882355, g: 0.36862746, b: 0.28235295, a: 1}
-    - _MediumColor: {r: 0.6627451, g: 0.37647063, b: 0.3019608, a: 1}
-    - _MediumOrientatedColor: {r: 0.8705883, g: 0.64705884, b: 0.37254903, a: 1}
-    - _PlayerPos: {r: 0, g: 0, b: 0, a: 1}
   m_BuildTextureStacks: []
