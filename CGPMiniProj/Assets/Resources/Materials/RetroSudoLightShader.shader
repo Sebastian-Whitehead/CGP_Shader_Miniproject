@@ -92,12 +92,6 @@ Shader "Unlit/RetroSudoLightShader"
                 
                 float dot_product = dot(i.normal.xyz, fragToPlayerVector.xyz);
                 float angleToPlayer = acos(dot_product / length(i.normal.xyz) / length(fragToPlayerVector));
-
-                /*
-                
-                */
-
-                
                 
                 if (length(fragToPlayerVector) <= _CloseRange)
                 {
