@@ -1,0 +1,6 @@
+- C#. script to pass the player x,z position to the shader
+- Shader. Create Vector between play and fragment
+- Shader. Test fragment normal orientation
+	Shader. Test Distance
+		Shader. Colour Fragment accordingly
+- Powerpoint Presentation
