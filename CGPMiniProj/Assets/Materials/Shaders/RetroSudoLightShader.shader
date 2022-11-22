@@ -85,41 +85,34 @@ Shader "Unlit/RetroSudoLightShader"
             {
                 fixed4 col = _BaseColor; //Set the base color for all fragments
                 float3 FragToPlayerVector = i.pos_world_space.xyz - _PlayerPos.xyz;
-                float AngleToPlayer =50;
+                float AngleToPlayer = 50;
                 //acos((dot(mul(i.normal.xz, unity_ObjectToWorld), FragToPlayerVector) / length(i.normal.xz)) / length(FragToPlayerVector));
                 
                 if (length(FragToPlayerVector) <= _CloseRange)
                 {
                     col = _CloseColor;
-                    /*if (AngleToPlayer >= _OrientationAngle)
+                    if (AngleToPlayer <= _OrientationAngle)
                     {
                         col = _CloseOrientatedColor;
-                    }*/
+                    }
                     return col;
                 }
 
                 if (length(FragToPlayerVector) <= _MediumRange)
                 {
                     col = _MediumColor;
-                    /*if (AngleToPlayer >= _OrientationAngle)
+                    if (AngleToPlayer <= _OrientationAngle)
                     {
                         col = _MediumOrientatedColor;
-                    }*/
+                    }
                     return col;
                 }
                 
                 
-                /*if (AngleToPlayer >= _OrientationAngle)
-                {
-                    col = _FarOrientatedColor;
-                }*/
-                
-                
-                /*float AngleToPlayer = acos((dot(i.normal.xyz, FragToPlayerVector) / length(i.normal.xyz)) / length(FragToPlayerVector));
                 if (AngleToPlayer <= _OrientationAngle)
                 {
-                    col = _CloseColor;
-                }*/
+                    col = _FarOrientatedColor;
+                }
                 return col;
             }
             ENDCG
