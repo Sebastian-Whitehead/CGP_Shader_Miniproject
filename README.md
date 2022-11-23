@@ -18,7 +18,7 @@ Default folder structure of the sudo light shader components:
 - cs Script *"Assets/Scripts/Pos To Shader* - **(Apply to every game object in which you wish to apply the sudo light shader to, the script applies the shader to the object on start-up)**
 
 By default, the sudo lighting shader is based around the position of a game object name *"Focal Point"*, This though can be changed in the public variables for any instance of the script. Within the script's public variables, the shading surface path can also be changed (While moveable it is required to be within the *"Assets/Resources/... /Shading Surface"* folder or a child folder thereof) ★
-*Adjusting both the various ranges and colors for the shader can be done within the material parameters*
+*Adjusting both the various ranges and colors for the shader can be done within the material parameters* (Following must be true: *CloseRange < CloseAngleRang < MediumRange < MediumAngleRange < FarAngleRange*)
 
 ###### *Pixelation Filter Usage:*
 Default folder structure of the pixelation filter shader components:
