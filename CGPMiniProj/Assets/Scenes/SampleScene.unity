@@ -155,6 +155,100 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &37733183
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 37733184}
+  - component: {fileID: 37733185}
+  m_Layer: 0
+  m_Name: Point Light
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &37733184
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 37733183}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0, y: 0.504, z: 0.01}
+  m_LocalScale: {x: 10, y: 1.3333334, z: 10}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 765798002}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!108 &37733185
+Light:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 37733183}
+  m_Enabled: 1
+  serializedVersion: 10
+  m_Type: 2
+  m_Shape: 0
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Intensity: 0.4
+  m_Range: 10
+  m_SpotAngle: 30
+  m_InnerSpotAngle: 21.80208
+  m_CookieSize: 10
+  m_Shadows:
+    m_Type: 0
+    m_Resolution: -1
+    m_CustomResolution: -1
+    m_Strength: 1
+    m_Bias: 0.05
+    m_NormalBias: 0.4
+    m_NearPlane: 0.2
+    m_CullingMatrixOverride:
+      e00: 1
+      e01: 0
+      e02: 0
+      e03: 0
+      e10: 0
+      e11: 1
+      e12: 0
+      e13: 0
+      e20: 0
+      e21: 0
+      e22: 1
+      e23: 0
+      e30: 0
+      e31: 0
+      e32: 0
+      e33: 1
+    m_UseCullingMatrixOverride: 0
+  m_Cookie: {fileID: 0}
+  m_DrawHalo: 0
+  m_Flare: {fileID: 0}
+  m_RenderMode: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RenderingLayerMask: 1
+  m_Lightmapping: 4
+  m_LightShadowCasterMode: 0
+  m_AreaSize: {x: 1, y: 1}
+  m_BounceIntensity: 1
+  m_ColorTemperature: 6570
+  m_UseColorTemperature: 0
+  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_UseBoundingSphereOverride: 0
+  m_UseViewFrustumForShadowCasterCull: 1
+  m_ShadowRadius: 0
+  m_ShadowAngle: 0
 --- !u!1 &92987102
 GameObject:
   m_ObjectHideFlags: 3
@@ -302,7 +396,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 280549270}
-  m_LocalRotation: {x: 0.047631975, y: 0.0000000021483564, z: -1.02446746e-10, w: 0.99886495}
+  m_LocalRotation: {x: 0.047631975, y: -0.0000000021483564, z: 1.02446746e-10, w: 0.99886495}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -626,6 +720,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   focalPointPath: Focal Point
+  materialPath: Materials/Shading Surface
 --- !u!64 &477364479
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -773,6 +868,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   focalPointPath: Focal Point
+  materialPath: Materials/Shading Surface
 --- !u!23 &651352164
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -885,6 +981,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   focalPointPath: Focal Point
+  materialPath: Materials/Shading Surface
 --- !u!65 &691508883
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -979,7 +1076,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 4939336454186530291}
+  - {fileID: 5587420271936496090}
   - {fileID: 1320696447}
   - {fileID: 320146061}
   m_Father: {fileID: 1263714363}
@@ -1206,7 +1303,8 @@ Transform:
   m_LocalPosition: {x: 0.0333334, y: 0.5399998, z: 0.0033332903}
   m_LocalScale: {x: 0.33333334, y: 2.5, z: 0.33333334}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 37733184}
   m_Father: {fileID: 1320696447}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1479,7 +1577,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: 0.04763198, y: 0.0000000021483566, z: -1.02446746e-10, w: 0.99886495}
+  m_LocalRotation: {x: 0.04763198, y: -0.0000000021483566, z: 1.02446746e-10, w: 0.99886495}
   m_LocalPosition: {x: 1.611723, y: 2.1813369, z: -7.449654}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1599,6 +1697,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   focalPointPath: Focal Point
+  materialPath: Materials/Shading Surface
 --- !u!64 &1005951061
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -1912,6 +2011,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   focalPointPath: Focal Point
+  materialPath: Materials/Shading Surface
 --- !u!64 &1472105402
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -2088,6 +2188,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   focalPointPath: Focal Point
+  materialPath: Materials/Shading Surface
 --- !u!1 &1724034293
 GameObject:
   m_ObjectHideFlags: 0
@@ -2136,6 +2237,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   focalPointPath: Focal Point
+  materialPath: Materials/Shading Surface
 --- !u!23 &1724034296
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2375,6 +2477,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   focalPointPath: Focal Point
+  materialPath: Materials/Shading Surface
 --- !u!64 &1802569160
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -2631,6 +2734,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   focalPointPath: Focal Point
+  materialPath: Materials/Shading Surface
 --- !u!64 &2146039901
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -2970,7 +3074,7 @@ GameObject:
   - component: {fileID: 5630622840471686914}
   - component: {fileID: 3366090323546953801}
   m_Layer: 0
-  m_Name: LOW
+  m_Name: Hat
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3031,6 +3135,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   focalPointPath: Focal Point
+  materialPath: Materials/Shading Surface
 --- !u!64 &3601979290472784966
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -3066,6 +3171,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   focalPointPath: Focal Point
+  materialPath: Materials/Shading Surface
 --- !u!64 &3745742656188441845
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -3135,6 +3241,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   focalPointPath: Focal Point
+  materialPath: Materials/Shading Surface
 --- !u!64 &4082947829237810610
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -3149,22 +3256,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 6099800089077584851, guid: c2fc8f9d99f04bf4f9c44451ed901699, type: 3}
---- !u!4 &4939336454186530291
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5748806412496842569}
-  m_LocalRotation: {x: 0.049593586, y: -0, z: -0, w: 0.9987696}
-  m_LocalPosition: {x: 0, y: 0.358, z: -0.082}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 5587420271936496090}
-  m_Father: {fileID: 700884207}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 5.685, y: 0, z: 0}
 --- !u!4 &5587420271936496090
 Transform:
   m_ObjectHideFlags: 0
@@ -3172,12 +3263,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3559333881203158193}
-  m_LocalRotation: {x: -0, y: -0.89879405, z: -0.43837118, w: 0}
-  m_LocalPosition: {x: 0, y: 0.043, z: 0.145}
-  m_LocalScale: {x: 7.3148456, y: 6.7424145, z: 6.7424145}
+  m_LocalRotation: {x: -0, y: -0.87594765, z: -0.48240614, w: 0}
+  m_LocalPosition: {x: 0, y: 0.38642406, z: 0.06654653}
+  m_LocalScale: {x: 7.3148465, y: 6.7424145, z: 6.742415}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 4939336454186530291}
+  m_Father: {fileID: 700884207}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -52, y: -180, z: 0}
 --- !u!33 &5630622840471686914
@@ -3188,22 +3279,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3559333881203158193}
   m_Mesh: {fileID: 2506578005322757104, guid: bcce2318d0564b24e82589820fc2a7db, type: 3}
---- !u!1 &5748806412496842569
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 4939336454186530291}
-  m_Layer: 0
-  m_Name: Hat
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
 --- !u!33 &7140048363075179875
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -3244,3 +3319,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   focalPointPath: Focal Point
+  materialPath: Materials/Shading Surface

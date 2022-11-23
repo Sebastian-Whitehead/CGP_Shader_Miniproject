@@ -3,12 +3,12 @@ Shader "Unlit/RetroSudoLightShader"
     Properties
     {
         _BaseColor ("BaseColor", Color) = (0,0,0,1)         // Base Unlit color
-        _OrientationAngle("Angel", Range(0.0, 90.0)) = 20   // Max angle between normal and player vector
+        _OrientationAngle("Angel", Range(0.0, 90.0)) = 52   // Max angle between normal and player vector
         
         [Header (Close Range)]  //All variables pertaining too close range lighting
-        _CloseRange ("CloseRange", Float) = 1                   //Range for close range lighting
-        _CloseColor ("CloseStandardColor", Color) = (0,0,0,1)   //Base color for close range fragments
-        _CloseOrientatedRange("CloseAngleRange", Float) = 1
+        _CloseRange ("CloseRange", Float) = 1                       //Range for close range lighting
+        _CloseColor ("CloseStandardColor", Color) = (0,0,0,1)       //Base color for close range fragments
+        _CloseOrientatedRange("CloseAngleRange", Float) = 1         //Range for the close angle color
         _CloseOrientatedColor("CloseAngleColor", Color) = (0,0,0,1) // Color for all orientated fragments within the given range
         
         [Header (Medium Range)] //See Close Range 
@@ -37,19 +37,24 @@ Shader "Unlit/RetroSudoLightShader"
             #pragma fragment frag
             #include "UnityCG.cginc"
 
-            struct appdata
+
+            // Variables provided to vertex
+            struct appdata 
             {
                 float4 vertex : POSITION;
                 float3 normal : NORMAL;
             };
-
-            struct v2f
+            
+            // Variables passed from vertex to fragment
+            struct v2f  
             {
                 float3 normal : NORMAL;
                 float4 pos : SV_POSITION;
-                float4 pos_world_space : TEXCOORD0;
+                float4 pos_world_space : TEXCOORD0; // The fragment position in world space
             };
 
+
+            //Initialize aforementioned variables
             float4 _BaseColor;
             float4 _PlayerPos;
             float _OrientationAngle;
@@ -68,47 +73,56 @@ Shader "Unlit/RetroSudoLightShader"
             
             float _FarOrientatedRange;
             float4 _FarOrientatedColor;
+
             
-            float rad_to_deg(float Radians)
+            //Convert passed radians angle to degrees
+            float rad_to_deg(float Radians) 
             {
                 float angle = Radians * UNITY_PI / 180;
                 return angle;
             }
-            
+
+            //Vertex Shader
             v2f vert (appdata v)
             {
-                v2f o;
+                v2f o; //Define output
                 
-                o.pos = UnityObjectToClipPos(v.vertex);
-                o.pos_world_space = mul(unity_ObjectToWorld, v.vertex);
-                o.normal = v.normal;
+                o.pos = UnityObjectToClipPos(v.vertex);                 // set derive pos variable from vertex's
+                o.pos_world_space = mul(unity_ObjectToWorld, v.vertex); // Calculate world space position
+                o.normal = v.normal;                                    // Pass surface normals
                 return o;
             }
             
             fixed4 frag (v2f i) : SV_Target
             {
-                fixed4 col = _BaseColor; //Set the base color for all fragments
-                float3 fragToPlayerVector = _PlayerPos.xyz - i.pos_world_space.xyz;
-                
-                float dot_product = dot(i.normal.xyz, fragToPlayerVector.xyz);
-                float angleToPlayer = acos(dot_product / length(i.normal.xyz) / length(fragToPlayerVector));
-                
-                if (length(fragToPlayerVector) <= _CloseRange)
+                float3 fragToPlayerVector = _PlayerPos.xyz - i.pos_world_space.xyz;                             // Vector between "focal point" game object and the given fragment
+                float dot_product = dot(i.normal.xyz, fragToPlayerVector.xyz);                                  // Dot product of the surface normal and the created vector
+                float angleToPlayer = acos(dot_product / length(i.normal.xyz) / length(fragToPlayerVector));    // Calculate angle between the two vectors
+
+                fixed4 col = _BaseColor; // Set the base color for all fragments (If no if statements are true output base color)
+
+                // Defines colors for any fragment within close range of focal point
+                if (length(fragToPlayerVector) <= _CloseRange)          // Is distance between focal point and fragment less than a given range
                 {
-                    col = _CloseColor;
-                    if (angleToPlayer <= rad_to_deg(_OrientationAngle))
+                    col = _CloseColor;                                  // Change Color
+                    if (angleToPlayer <= rad_to_deg(_OrientationAngle)) // Check if surface normal points towards the player
                     {
-                        col = _CloseOrientatedColor;
+                        col = _CloseOrientatedColor;                    // Change Color
                     }
-                    return col;
+                    return col;                                         // Return color (Stops rest of if statements)
                 }
 
+                // Check if both within close orientated range and if normal is point towards player
                 if (angleToPlayer <= rad_to_deg(_OrientationAngle) && length(fragToPlayerVector) <= _CloseOrientatedRange)
                 {
-                    col = _CloseOrientatedColor;
-                    return col;
+                    col = _CloseOrientatedColor;    // Change Color
+                    return col;                     // Return color (Stops rest of if statements)
                 }
+
                 
+                
+                // Defines colors for any fragment within close range of focal point
+                // See line 104 - 112
                 if (length(fragToPlayerVector) <= _MediumRange)
                 {
                     col = _MediumColor;
@@ -119,19 +133,25 @@ Shader "Unlit/RetroSudoLightShader"
                     return col;
                 }
 
+                
+                // Check if both within medium orientated range and if normal is point towards player
+                // See line 115-119
                 if (angleToPlayer <= rad_to_deg(_OrientationAngle) && length(fragToPlayerVector) <= _MediumOrientatedRange)
                 {
                     col = _MediumOrientatedColor;
                     return col;
                 }
+
                 
+                // Check if both within far orientated range and if normal is point towards player
+                // See line 115 - 119
                 if (angleToPlayer <= rad_to_deg(_OrientationAngle) && length(fragToPlayerVector) <= _FarOrientatedRange)
                 {
                     col = _FarOrientatedColor;
                     return col;
                 }
                 
-                return col;
+                return col;     // If no if statements are true return base color
             }
             ENDCG
         }
