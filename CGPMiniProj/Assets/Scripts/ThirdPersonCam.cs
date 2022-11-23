@@ -1,38 +1,32 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ThirdPersonCam : MonoBehaviour
 {
-   [Header("References")] 
-   public Transform orientation;
-   public Transform player;
-   public Transform playerObj;
-   public Rigidbody rb;
+    [Header("References")] public Transform orientation;
 
-   public float rotationSpeed;
+    public Transform player;
+    public Transform playerObj;
+    public Rigidbody rb;
 
-   private void Start()
-   {
-      Cursor.lockState = CursorLockMode.Locked;
-      Cursor.visible = false;
-   }
+    public float rotationSpeed;
 
-   private void Update()
-   {
-      //rotate Orientation
-      Vector3 viewDir = player.position - new Vector3(transform.position.x, player.position.y, transform.position.z);
-      orientation.forward = viewDir.normalized;
+    private void Start()
+    {
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+    }
 
-      float horizontalInput = Input.GetAxis("Horizontal");
-      float verticalInput = Input.GetAxis("Vertical");
-      Vector3 inputDir = orientation.forward * verticalInput + orientation.right * horizontalInput;
+    private void Update()
+    {
+        //rotate Orientation
+        var viewDir = player.position - new Vector3(transform.position.x, player.position.y, transform.position.z);
+        orientation.forward = viewDir.normalized;
 
-      if (inputDir != Vector3.zero)
-      {
-         playerObj.forward = Vector3.Slerp(playerObj.forward, inputDir.normalized, Time.deltaTime * rotationSpeed);
-         
-      }
-   }
+        var horizontalInput = Input.GetAxis("Horizontal");
+        var verticalInput = Input.GetAxis("Vertical");
+        var inputDir = orientation.forward * verticalInput + orientation.right * horizontalInput;
+
+        if (inputDir != Vector3.zero)
+            playerObj.forward = Vector3.Slerp(playerObj.forward, inputDir.normalized, Time.deltaTime * rotationSpeed);
+    }
 }
