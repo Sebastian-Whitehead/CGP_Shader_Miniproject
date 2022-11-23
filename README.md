@@ -1,7 +1,7 @@
 # CGP_Shader_Miniproject: Sudo Light Shader
 ##### Description:
 This is a unity project used to demo a self made sudo light shader made to replicate the shading used in the steam game [Crypt](https://store.steampowered.com/app/2138700/Crypt/). The Sample Scene, in the scene folder, provides a simple testing environment for the player to move within, it utilises a 3rd person camera through the cinemachine plugin in order to allow viewing behind surfaces. It was created to fulfill the mini project requirements for the computer graphics programming course as part of the Medialogy 5th semester 2022 and Aalborg university Denmark. 
-The PowerPoint presentation required under the aforementioned guidelines can be found within the route folder of the GitHub repository.
+The PowerPoint presentation required under the aforementioned guidelines can also be found within the route folder of the GitHub repository.
 ***
 
 ##### Installation:
