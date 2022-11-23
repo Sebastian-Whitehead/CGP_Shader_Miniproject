@@ -54,7 +54,6 @@ Shader "Hidden/Pixelation"
                 float2 coord = float2(_dx * floor(i.uv.x / _dx), _dy * floor(i.uv.y / _dy));
                 
                 fixed4 col = tex2D(_MainTex, coord);
-                //col.rgb = 1 - col.rgb;
                 return col;
             }
             ENDCG
